@@ -1,0 +1,29 @@
+spring:
+  devtools:
+    restart:
+      enabled: false
+      additional-exclude: static/**
+    livereload:
+      enabled: false
+    jackson:
+      serialization:
+        indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/db?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: 123
+    password: 123
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  liquibase:
+    change-log: classpath:config/liquibase/master.xml
+  thymeleaf:
+    cache: false
